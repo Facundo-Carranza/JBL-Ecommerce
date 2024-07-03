@@ -269,3 +269,54 @@ ul.devided > li:last-child {
 }
 
 /* end mega menu */
+
+.box {
+  padding: 20px;
+}
+
+.hero {
+  height: calc(
+    100vh -
+      (
+        var(--top-header-size) + var(--mid-header-size) +
+          var(--bottom-header-size)
+      )
+  );
+  padding: 0 20px;
+}
+
+.slider,
+.slider .container {
+  height: 100%;
+  position: relative;
+}
+
+.slide {
+  height: 100%;
+  position: abosulute;
+  display: flex;
+  inset: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+.slide.active {
+  visibility: visible;
+}
+
+.slide .info {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 10%;
+}
+
+.info-content h2 {
+  font-size: 70px;
+  margin: 10px 0 35px;
+}
+
+.info-content button{
+  margin-top: 30px;
+}
