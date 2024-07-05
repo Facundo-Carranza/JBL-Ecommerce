@@ -293,17 +293,19 @@ ul.devided > li:last-child {
 }
 
 .slide {
-  height: 0;
   position: absolute;
-  display: flex;
   inset: 0;
+  display: flex;
   overflow: hidden;
   visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
 }
 
 .slide.active {
   visibility: visible;
-  height: 100%;
+  opacity: 1;
+  z-index: 1;
 }
 
 .slide .info {
@@ -426,3 +428,116 @@ ul.devided > li:last-child {
   visibility: visible;
 }
 /* end slide animation */
+
+.trans-delay-0-2 {
+  transition-delay: 0.4s;
+}
+
+.trans-delay-0-4 {
+  transition-delay: 0.4s;
+}
+
+.trans-delay-0-6 {
+  transition-delay: 0.6s;
+}
+
+.trans-delay-0-8 {
+  transition-delay: 0.8s;
+}
+
+.promotion {
+  padding: 15px;
+}
+
+.promotion [class*="col-"]{
+  padding: 15px;
+}
+
+.promotion-box{
+  display: flex;
+  background-color: var(--third-bg-color);
+  position: relative;
+}
+
+.promotion-box .text{
+  flex-grow: 1;
+  padding: 20px;
+}
+
+.promotion-box .text h3 {
+font-size: 25px;
+}
+
+.promotion-box .text button{
+  margin-top: 30px;
+}
+
+.promotion-box img{
+  width: 150px;
+  transition: transform 0.3 ease-in-out;
+}
+
+.promotion-box:hover img {
+  transform: scale(1.1)
+}
+
+.section{
+  padding: 60px;
+}
+
+.section-header, .section-footer{
+  text-align: center;
+  margin: 80px 0 70px;
+  text-transform: uppercase;
+  font-size: 40px;
+}
+
+.product-card{
+  background-color: var(--main-bg-color);
+  transition: all .3s ease-in-out;
+}
+
+.product-card:hover {
+  background-color: var(--second-bg-color);
+}
+
+.section {
+  padding: 60px 0;
+}
+
+.section-header,
+.section-footer {
+  text-align: center;
+  margin: 80px 0 70px;
+  text-transform: uppercase;
+}
+
+.section-header h2 {
+  font-size: 40px;
+}
+
+.product-card {
+  background-color: var(--main-bg-color);
+  transition: all 0.3s ease-in-out;
+}
+
+.product-card:hover {
+  background-color: var(--second-bg-color);
+}
+
+.product-card-img {
+  height: 300px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.product-card-img img {
+  max-height: 100%;
+  transition: all 0.3s ease-in-out;
+}
+
+.product-card-img img:nth-child(2) {
+  display: none;
+}

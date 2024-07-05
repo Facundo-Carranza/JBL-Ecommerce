@@ -2,55 +2,61 @@ let slide_index = 0;
 let slide_play = true;
 let slides = document.querySelectorAll(".slide");
 
-hideAllSlide = () => {
+const hideAllSlide = () => {
   slides.forEach((e) => {
     e.classList.remove("active");
   });
 };
 
-showSlide = () => {
+const showSlide = () => {
   hideAllSlide();
   slides[slide_index].classList.add("active");
 };
 
-nextSlide = () => {
-  slide_index = slide_index + 1 >= slides.length ? 0 : slide_index + 1;
+const nextSlide = () => {
+  slide_index = (slide_index + 1) % slides.length;
+  showSlide();
 };
 
-prevSlide = () => {
-  slide_index = slide_index - 1 < 0 ? slides.length - 1 : slide_index - 1;
+const prevSlide = () => {
+  slide_index = (slide_index - 1 + slides.length) % slides.length;
+  showSlide();
 };
 
 // Pause slide when hover slider
-document
-  .querySelector(".slider")
-  .addEventListener("mouseover", () => (slide_play = false));
+document.querySelector(".slider").addEventListener("mouseover", () => {
+  slide_play = false;
+});
 
 // Enable slide when mouse leave out slider
-document
-  .querySelector(".slider")
-  .addEventListener("mouseleave", () => (slide_play = true));
+document.querySelector(".slider").addEventListener("mouseleave", () => {
+  slide_play = true;
+});
 
 // Slider control
-document.querySelector(".slider-next").addEventListener("click", () => {
+document.querySelector(".slide-next").addEventListener("click", () => {
   nextSlide();
   showSlide();
 });
 
-document.querySelector(".slider-prev").addEventListener("click", () => {
+document.querySelector(".slide-prev").addEventListener("click", () => {
   prevSlide();
   showSlide();
 });
 
-showSlide();
-
-// Auto play slide
-setInterval(() => {
+// Auto slide
+const autoSlide = () => {
   if (slide_play) {
     nextSlide();
     showSlide();
   }
-}, 3000);
+};
+
+// Initialize the first slide
+showSlide();
+
+// Set interval for auto slide
+setInterval(autoSlide, 3000); // Change slide every 3 seconds
 
 let products = [
   {
